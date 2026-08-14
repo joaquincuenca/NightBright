@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #f6f8f5;
+  --surface: #ffffff;
+  --surface-alt: #eef3ec;
+  --border: #dce6dd;
+  --ink: #16201b;
+  --ink-muted: #5c6b60;
+  --glow: #4cd971;
+  --glow-deep: #1f9d4c;
+  --glow-soft: rgba(76, 217, 113, 0.18);
+  --amber: #e8a23d;
+  --rose: #e15873;
+  --blue: #3b82c4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Signature element: a highlighter-style underline trace, like a
+   swatch marker — used under the page title and section headings. */
+.glow-underline {
+  position: relative;
+  display: inline-block;
+}
+.glow-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 44px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--glow);
+  box-shadow: 0 0 10px 1px var(--glow-soft);
+}
+
+.card-glow {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card-glow:hover {
+  border-color: var(--glow);
+  box-shadow: 0 0 24px -6px var(--glow-soft);
+}
+
+input[type='range'] {
+  accent-color: var(--glow-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
